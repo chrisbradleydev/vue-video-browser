@@ -1,5 +1,5 @@
 <template>
-  <div v-if="video" class="col-md-8">
+  <div v-if="Object.keys(video).length !== 0" class="col-md-8">
     <div class="embed-responsive embed-responsive-16by9">
       <iframe class="embed-responsive-item" :src="videoUrl"/>
     </div>

@@ -4,7 +4,7 @@
     <SearchBar/>
     <div class="row">
       <VideoDetail :video="selectedVideo"/>
-      <VideoList @videoSelect="onVideoSelect" :videos="videos"/>
+      <VideoList :videos="videos"/>
     </div>
   </div>
 </template>
@@ -21,23 +21,14 @@ export default {
     VideoList,
     VideoDetail,
   },
-  data() {
-    return {
-      selectedVideo: null,
-    }
-  },
   computed: {
     appTitle() {
       return process.env.VUE_APP_TITLE
     },
     ...mapGetters({
       videos: 'videos',
+      selectedVideo: 'selectedVideo',
     }),
-  },
-  methods: {
-    onVideoSelect(video) {
-      this.selectedVideo = video
-    },
   },
 }
 </script>

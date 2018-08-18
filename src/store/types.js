@@ -1,1 +1,2 @@
 export const SEARCH_VIDEOS = 'SEARCH_VIDEOS'
+export const SELECTED_VIDEO = 'SELECTED_VIDEO'

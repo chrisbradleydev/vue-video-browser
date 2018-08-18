@@ -7,15 +7,20 @@ Vue.use(Vuex)
 
 const state = {
   videos: [],
+  selectedVideo: {},
 }
 
 const getters = {
   videos: state => state.videos,
+  selectedVideo: state => state.selectedVideo,
 }
 
 const mutations = {
   [types.SEARCH_VIDEOS](state, { videos }) {
     state.videos = videos
+  },
+  [types.SELECTED_VIDEO](state, { video }) {
+    state.selectedVideo = video
   },
 }
 
@@ -35,6 +40,11 @@ const actions = {
           videos: resp.data.items,
         })
       })
+  },
+  selectedVideo({ commit }, payload) {
+    commit(types.SELECTED_VIDEO, {
+      video: payload.video,
+    })
   },
 }
 
