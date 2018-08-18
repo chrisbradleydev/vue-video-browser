@@ -7,9 +7,17 @@
 <script>
 export default {
   name: 'SearchBar',
+  computed: {
+    apiKey() {
+      return process.env.VUE_APP_YOUTUBE_API_KEY
+    },
+  },
   methods: {
     onInput(e) {
-      this.$emit('termChange', e.target.value)
+      this.$store.dispatch('searchYoutube', {
+        apiKey: this.apiKey,
+        searchTerm: e.target.value,
+      })
     },
   },
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h1>{{ appTitle }}</h1>
-    <SearchBar @termChange="onTermChange"/>
+    <SearchBar/>
     <div class="row">
       <VideoDetail :video="selectedVideo"/>
       <VideoList @videoSelect="onVideoSelect" :videos="videos"/>
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { mapGetters } from 'vuex'
 import SearchBar from './components/SearchBar'
 import VideoList from './components/VideoList'
 import VideoDetail from './components/VideoDetail'
@@ -23,7 +23,6 @@ export default {
   },
   data() {
     return {
-      videos: [],
       selectedVideo: null,
     }
   },
@@ -31,25 +30,11 @@ export default {
     appTitle() {
       return process.env.VUE_APP_TITLE
     },
-    apiKey() {
-      return process.env.VUE_APP_YOUTUBE_API_KEY
-    },
+    ...mapGetters({
+      videos: 'videos',
+    }),
   },
   methods: {
-    onTermChange(searchTerm) {
-      axios
-        .get('https://www.googleapis.com/youtube/v3/search', {
-          params: {
-            key: this.apiKey,
-            type: 'video',
-            part: 'snippet',
-            q: searchTerm,
-          },
-        })
-        .then(resp => {
-          this.videos = resp.data.items
-        })
-    },
     onVideoSelect(video) {
       this.selectedVideo = video
     },
