@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     onVideoSelect() {
-      this.$store.dispatch('selectedVideo', {
+      this.$store.dispatch('setVideo', {
         video: this.video,
       })
     },

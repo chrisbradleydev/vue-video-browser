@@ -16,10 +16,10 @@ const getters = {
 }
 
 const mutations = {
-  [types.SEARCH_VIDEOS](state, { videos }) {
+  [types.SEARCH_YOUTUBE](state, { videos }) {
     state.videos = videos
   },
-  [types.SELECTED_VIDEO](state, { video }) {
+  [types.SET_VIDEO](state, { video }) {
     state.selectedVideo = video
   },
 }
@@ -36,13 +36,13 @@ const actions = {
         },
       })
       .then(resp => {
-        commit(types.SEARCH_VIDEOS, {
+        commit(types.SEARCH_YOUTUBE, {
           videos: resp.data.items,
         })
       })
   },
-  selectedVideo({ commit }, payload) {
-    commit(types.SELECTED_VIDEO, {
+  setVideo({ commit }, payload) {
+    commit(types.SET_VIDEO, {
       video: payload.video,
     })
   },

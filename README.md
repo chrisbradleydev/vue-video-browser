@@ -2,7 +2,7 @@
 
 ## Installation
 
-```bash
+```sh
 git clone https://github.com/ctbradley/vue-video-browser.git
 cd vue-video-browser
 cp .env.example .env.local
@@ -13,24 +13,24 @@ cp .env.example .env.local
 
 ## Project setup
 
-```bash
+```sh
 yarn install
 ```
 
 ## Compiles and hot-reloads for development
 
-```bash
+```sh
 yarn serve
 ```
 
 ## Compiles and minifies for production
 
-```bash
+```sh
 yarn build
 ```
 
 ## Lints and fixes files
 
-```bash
+```sh
 yarn lint
 ```
